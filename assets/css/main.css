@@ -1823,6 +1823,12 @@ ul.icons li .icon:before {
 .shiny:hover::before {
   transform: skewX(45deg) translateX(-350%);
 }
+@media screen and (max-width: 480px) {
+  .shiny::before {
+    width: 0%;
+    height: 0%;
+  }
+}
 
 /* Labeled Icons */
 ul.labeled-icons {
