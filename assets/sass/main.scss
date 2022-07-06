@@ -603,6 +603,12 @@ $size-header-pad: 4em;
 		}
 	}
 
+	.fa {
+		&:before {
+			font-family: 'Font Awesome 5 Free';
+		}
+	}
+
 /* Image */
 
 	.image {
@@ -705,7 +711,7 @@ $size-header-pad: 4em;
 			}
 
 			img {
-				border-radius: 100%;
+				border-radius: 50px;
 				width: 100%;
 			}
 		}
@@ -758,7 +764,6 @@ $size-header-pad: 4em;
 		padding-left: 0;
 		position: relative;
 		display: flex;
-		z-index: 2;
 
 		li {
 			position: relative;
@@ -766,49 +771,18 @@ $size-header-pad: 4em;
 			margin: 10px;
 			display: inline-block;
 			padding: 0 1em 0 0;
-
-			i {
-				color:#fff;
-			}
-
+			
 			a {
-				transition: 0.3s; 
-				position: relative;
 				height: 80px;
 				width: 80px;
-				border: 1px solid rgba(255, 255, 255, 0.4);
-				border-right: 1px solid rgba(255, 255, 255, 0.2);
-				border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-				box-shadow: 0 5px 45px rgba(0,0,0,0.1);
-				backdrop-filter: blur(2px);
-				display: flex;
-				border-radius: 10px;
-				justify-content: center;
-				text-decoration: none;
-				align-items: center;
-				color:#fff;
-				overflow: hidden;
 
 				&:hover {
 					transform: translateY(-18px) rotateZ(-8deg);
 				}
+			}
 
-				&::before {
-					content: '';
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 50px;
-					height: 100%;
-					background: rgba(255,255,255,0.5);
-					transform: skewX(45deg) translateX(150px);
-					transition: 0.5s;
-				}
-
-				&:hover::before {
-					transform: skewX(45deg) translateX(-150px);
-				}
-
+			i {
+				color:#fff;
 			}
 
 			&:last-child {
@@ -820,6 +794,40 @@ $size-header-pad: 4em;
 					font-size: 1.5em;
 				}
 			}
+		}
+	}
+
+	.shiny {
+		z-index: 2;
+		display: flex;
+		//Must remove 'display: none' from avatar
+		transition: 0.3s; 
+		border: 1px solid rgba(255, 255, 255, 0.4);
+		border-right: 1px solid rgba(255, 255, 255, 0.2);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+		box-shadow: 0 5px 45px rgba(0,0,0,.1);
+		backdrop-filter: blur(2px);
+		border-radius: 10px;
+		justify-content: center;
+		text-decoration: none;
+		align-items: center;
+		color:#fff;
+		overflow: hidden;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 50%;
+			height: 100%;
+			background: rgba(255,255,255,0.5);
+			transform: skewX(45deg) translateX(400%);
+			transition: 0.6s;
+		}
+
+		&:hover::before {
+			transform: skewX(45deg) translateX(-350%);
 		}
 	}
 
@@ -1177,7 +1185,7 @@ $size-header-pad: 4em;
 
 		.image.avatar {
 			margin: 0 0 (_size(element-margin) * 0.5) 0;
-			width: 6.25em;
+			width: 10em;
 		}
 	}
 

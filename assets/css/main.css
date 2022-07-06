@@ -1634,6 +1634,10 @@ input[type=radio] + label:before {
   font-family: "Font Awesome 5 Brands";
 }
 
+.fa:before {
+  font-family: "Font Awesome 5 Free";
+}
+
 /* Image */
 .image {
   border-radius: 0.35em;
@@ -1719,7 +1723,7 @@ input[type=radio] + label:before {
   display: none;
 }
 .image.avatar img {
-  border-radius: 100%;
+  border-radius: 50px;
   width: 100%;
 }
 
@@ -1763,7 +1767,6 @@ ul.icons {
   padding-left: 0;
   position: relative;
   display: flex;
-  z-index: 2;
 }
 ul.icons li {
   position: relative;
@@ -1772,21 +1775,33 @@ ul.icons li {
   display: inline-block;
   padding: 0 1em 0 0;
 }
+ul.icons li a {
+  height: 80px;
+  width: 80px;
+}
+ul.icons li a:hover {
+  transform: translateY(-18px) rotateZ(-8deg);
+}
 ul.icons li i {
   color: #fff;
 }
-ul.icons li a {
+ul.icons li:last-child {
+  padding-right: 0;
+}
+ul.icons li .icon:before {
+  font-size: 1.5em;
+}
+
+.shiny {
+  z-index: 2;
+  display: flex;
   transition: 0.3s;
-  position: relative;
-  height: 80px;
-  width: 80px;
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-right: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 5px 45px rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
-  display: flex;
   border-radius: 10px;
   justify-content: center;
   text-decoration: none;
@@ -1794,28 +1809,19 @@ ul.icons li a {
   color: #fff;
   overflow: hidden;
 }
-ul.icons li a:hover {
-  transform: translateY(-18px) rotateZ(-8deg);
-}
-ul.icons li a::before {
+.shiny::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 50px;
+  width: 50%;
   height: 100%;
   background: rgba(255, 255, 255, 0.5);
-  transform: skewX(45deg) translateX(150px);
-  transition: 0.5s;
+  transform: skewX(45deg) translateX(400%);
+  transition: 0.6s;
 }
-ul.icons li a:hover::before {
-  transform: skewX(45deg) translateX(-150px);
-}
-ul.icons li:last-child {
-  padding-right: 0;
-}
-ul.icons li .icon:before {
-  font-size: 1.5em;
+.shiny:hover::before {
+  transform: skewX(45deg) translateX(-350%);
 }
 
 /* Labeled Icons */
@@ -2166,7 +2172,7 @@ input[type=button]:disabled,
 }
 #header .image.avatar {
   margin: 0 0 1em 0;
-  width: 6.25em;
+  width: 10em;
 }
 
 /* Footer */
