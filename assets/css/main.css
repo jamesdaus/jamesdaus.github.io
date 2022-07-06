@@ -1760,11 +1760,10 @@ dl {
 
 /* Icons */
 ul.icons {
-  cursor: default;
-  list-style: none;
   padding-left: 0;
   position: relative;
   display: flex;
+  z-index: 2;
 }
 ul.icons li {
   position: relative;
@@ -1773,7 +1772,11 @@ ul.icons li {
   display: inline-block;
   padding: 0 1em 0 0;
 }
+ul.icons li i {
+  color: #fff;
+}
 ul.icons li a {
+  transition: 0.3s;
   position: relative;
   height: 80px;
   width: 80px;
@@ -1789,6 +1792,24 @@ ul.icons li a {
   text-decoration: none;
   align-items: center;
   color: #fff;
+  overflow: hidden;
+}
+ul.icons li a:hover {
+  transform: translateY(-18px) rotateZ(-8deg);
+}
+ul.icons li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: skewX(45deg) translateX(150px);
+  transition: 0.5s;
+}
+ul.icons li a:hover::before {
+  transform: skewX(45deg) translateX(-150px);
 }
 ul.icons li:last-child {
   padding-right: 0;
@@ -2149,12 +2170,6 @@ input[type=button]:disabled,
 }
 
 /* Footer */
-#footer .icons {
-  margin: 1em 0 0 0;
-}
-#footer .icons a {
-  color: rgba(255, 255, 255, 0.4);
-}
 #footer .copyright {
   color: rgba(255, 255, 255, 0.4);
   font-size: 0.8em;
@@ -2513,6 +2528,11 @@ body.is-touch .poptrox-popup .closer {
 
   h3 {
     font-size: 1em;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 18px;
   }
 
   /* Section/Article */
