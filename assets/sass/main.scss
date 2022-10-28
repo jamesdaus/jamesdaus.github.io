@@ -717,6 +717,11 @@ $size-header-pad: 4em;
 		}
 	}
 
+	.thumbnail {
+		object-fit: cover;
+		height: 12em;
+	}
+
 /* List */
 
 	ol {
